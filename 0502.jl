@@ -105,7 +105,7 @@ function get_command(progS)
         res = if op1 < op2 1 else 0 end
         return res, addr_new
 
-    elseif comm == 8 # LESS THAN
+    elseif comm == 8 # EQUALS
         op1 = readOperand(progS, op1Mode)
         op2 = readOperand(progS, op2Mode)
         addr_new = readWord(progS) + 1
@@ -132,7 +132,7 @@ function setup_program()
     # p = [3,21,1008,21,8,20,1005,20,22,107,8,21,20,1006,20,31,1106,0,36,98,0,0,1002,21,125,20,4,20,1105,1,46,104,999,1105,1,46,1101,1000,1,20,4,20,1105,1,46,98,99]
     # outputs 999 if the input value is below 8, outputs 1000 if the input value is equal to 8, or outputs 1001 if the input value is greater than 8.
     progS = ProgStream(p, 1)
-    instr_addr = Int64(1)
+    
     res = 0
 
     while true
